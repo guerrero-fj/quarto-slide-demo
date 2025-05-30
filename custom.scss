@@ -18,3 +18,31 @@
   color: #1e90ff;
 }
 
+ .reveal .slide-logo {
+      height: 100px !important; /* Change the height as needed */
+      width: 250px !important;  /* Change the width as needed */
+      max-width: unset !important; /* Optional: Allow it to exceed set width */
+      max-height: unset !important; /* Optional: Allow it to exceed set height */
+    }
+
+
+/* Spacing for headings */
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+  margin-bottom: 20px; /* Adjust as needed for spacing below headings */
+}
+
+/* Spacing for paragraphs */
+.reveal p {
+  margin-bottom: 25px; /* Adjust as needed for spacing below paragraphs */
+}
+
+/* Spacing for images */
+.reveal img {
+  margin-top: 25px;   /* Adjust as needed for spacing above figures */
+  margin-bottom: 25px; /* Adjust as needed for spacing below figures */
+}
+
+/* Spacing for list items (Example) */
+.reveal li {
+  margin-bottom: 10px;  /* Adjust as needed for spacing between list items */
+}

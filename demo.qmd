@@ -1,9 +1,16 @@
 ---
 title: "My Reveal.js Demo"
-format: 
-  revealjs:
-    theme: default
-editor: source
+subtitle: "Create beautiful interactive slide decks with Reveal.js"
+format:
+  revealjs: 
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: images/quarto.png
+    css: styles.css
+    footer: '[https://{{< meta prerelease-subdomain >}}quarto.org](https://{{< meta prerelease-subdomain >}}quarto.org)'
+#runtime: shiny
 ---
 
 ## Welcome {.emphasize}
@@ -25,7 +32,7 @@ This is a Quarto Reveal.js presentation. It is a demo of the Reveal.js format an
 
 - Custom theme
 - Data visualizations using **ggplot2** and **plotly**
-- Live Slido Polling
+- Interactive slides
 ---
 
 ## Data Visualization {.emphasize}
@@ -51,7 +58,7 @@ p <- ggplot(mtcars, aes(x = mpg, y = wt)) +
        x = "Miles per Gallon (mpg)",
        y = "Weight (1000 lbs)")
 
-ggplotly(p)
+ggplotly(p, width = 900, height = 400)
 ```
 ---
 ## Live Poll: What's Your Favorite Visual Design Principle?
