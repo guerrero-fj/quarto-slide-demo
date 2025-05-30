@@ -1,0 +1,25 @@
+{
+    "id": "817C28DE",
+    "path": "~/GitHub/quarto-slide-demo/demo.qmd",
+    "project_path": "demo.qmd",
+    "type": "quarto_markdown",
+    "hash": "1545493144",
+    "contents": "",
+    "dirty": false,
+    "created": 1748026513925.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "rmdVisualMode": "false",
+        "source_window_id": "",
+        "Source": "Source"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1748026321,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1748026321,
+    "read_only": false,
+    "read_only_alternatives": []
+}
