@@ -3,7 +3,7 @@
     "path": "~/GitHub/quarto-slide-demo/interactive.qmd",
     "project_path": "interactive.qmd",
     "type": "quarto_markdown",
-    "hash": "1159375109",
+    "hash": "2147573012",
     "contents": "",
     "dirty": false,
     "created": 1748026511840.0,
@@ -12,14 +12,21 @@
     "properties": {
         "rmdVisualMode": "false",
         "source_window_id": "",
-        "Source": "Source"
+        "Source": "Source",
+        "cursorPosition": "15,0",
+        "scrollLine": "0",
+        "rmdVisualCollapsedChunks": "",
+        "rmdVisualModeLocation": "4311:1700",
+        "rmdVisualWrapConfigured": "true",
+        "docOutlineVisible": "1",
+        "docOutlineSize": "1113"
     },
     "folds": "",
-    "lastKnownWriteTime": 1748026325,
+    "lastKnownWriteTime": 1748632681,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1748026325,
+    "last_content_update": 1748632681694,
     "read_only": false,
     "read_only_alternatives": []
 }

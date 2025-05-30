@@ -3,7 +3,7 @@
     "path": "~/GitHub/quarto-slide-demo/interactive.html",
     "project_path": "interactive.html",
     "type": "html",
-    "hash": "849531124",
+    "hash": "3149480681",
     "contents": "",
     "dirty": false,
     "created": 1748026508992.0,
@@ -11,14 +11,16 @@
     "relative_order": 1,
     "properties": {
         "source_window_id": "",
-        "Source": "Source"
+        "Source": "Source",
+        "cursorPosition": "0,0",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1748026325,
+    "lastKnownWriteTime": 1748632696,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1748026325,
+    "last_content_update": 1748632696,
     "read_only": false,
     "read_only_alternatives": []
 }

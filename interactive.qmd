@@ -15,42 +15,40 @@ format:
     footer: 'Effective Communication Skills for Scientists'
 runtime: shiny
 ---
+
 ## In the beginning...there was Excel {.emphasize}
 
 I was pretty set into my ways of creating data presentations using Excel. It was quick, it was simple, and it was easy to share with others. I could create charts and graphs, and even do some basic data analysis.
 
-![](images/alsea1.jpg){width=80%}
+![](images/alsea1.jpg){width="80%"}
 
 ## Then there was PowerPoint {.emphasize}
 
 I would take my Excel charts and copy them into PowerPoint, and edit for hours, sometimes days, to get the presentation just right.
 
-![](images/alsea2.jpg){width=80%}
-
+![](images/alsea2.jpg){width="80%"}
 
 ## Until one day my story asked for more... {.emphasize}
 
-There was a story about carbon exchange in the Alsea River that I wanted to tell. Coarse and fine particles, always assumed as distinc pools, were chemically connected, but Excel was quite limiting.
-![](images/alsea3.jpg){width=80%}
+There was a story about carbon exchange in the Alsea River that I wanted to tell. Coarse and fine particles, always assumed as distinc pools, were chemically connected, but Excel was quite limiting. ![](images/alsea3.jpg){width="80%"}
 
 ## Moving to RStudio {.emphasize}
 
 In STATS 511, I learned about R Markdown and how to create dynamic documents with R. I was amazed at how easy it was to create beautiful reports and presentations with R Markdown.
 
-![](images/rstudio-screenshot.jpg){width=80%}
+![](images/rstudio-screenshot.jpg){width="80%"}
 
 ## And never looked back {.emphasize}
 
-My science stories were not limited by default plots any more. I may use PowerPoint for light editing, 
-but I try to avoid it as much as I can. 
+My science stories were not limited by default plots any more. I may use PowerPoint for light editing, but I try to avoid it as much as I can.
 
-![](images/rstudio-plots.jpg){width=80%}
+![](images/rstudio-plots.jpg){width="80%"}
 
 ## Enter GitHub {.emphasize}
 
 Once I transitioned into more coding, I started using GitHub to store my code in the cloud and access it from anywhere. I also started using GitHub to share my code with others and collaborate on projects.
 
-![](images/guerrero-github.jpg){width=80%}
+![](images/guerrero-github.jpg){width="80%"}
 
 ## And then I found Quarto {.emphasize}
 
@@ -68,7 +66,6 @@ This presentation, for instance is a Quarto presentation that uses the **Reveal.
 
 **Reveal.js** is a framework for easily creating beautiful presentations using HTML. It is designed to be easy to use, flexible, and powerful, allowing you to create presentations that are both visually appealing and interactive.
 
-
 ## Interactive Slides {.smaller transition="slide"}
 
 Include Jupyter widgets and htmlwidgets in your presentations
@@ -82,7 +79,6 @@ leaflet() %>%
   addTiles() %>%  # Add default OpenStreetMap map tiles
   addMarkers(lng=-74.2005, lat=11.2390, popup="My Hometown")
 ```
-
 
 ## Data Visualization + Interactivity {.emphasize}
 
@@ -128,3 +124,15 @@ renderPlotly({
   )
 }) 
 ```
+
+## How far can you go? Enter AI {.emphasize}
+
+We are going to transition into the world of AI now, but I want you to see how far you can take Quarto + GitHub
+
+We will use one additional feature provided by Reveal.js:
+
+The `preview-links` option to open links in an iframe on top of your slides. Try clicking the link below for a demonstration:
+
+::: {style="text-align: center; margin-top: 1em"}
+[AI under the hood: Transformers](https://jalammar.github.io/illustrated-transformer/){preview-link="true" style="text-align: center"}
+:::
