@@ -1,0 +1,6 @@
+"0","library(ggplot2)"
+"0","ggplot(mtcars, aes(x = mpg, y = wt)) +"
+"0","  geom_point(color = ""steelblue"", size = 3) +"
+"0","  labs(title = ""Fuel Efficiency vs. Weight"","
+"0","       x = ""Miles per Gallon (mpg)"","
+"0","       y = ""Weight (1000 lbs)"") "

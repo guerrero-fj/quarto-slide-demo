@@ -1,0 +1,13 @@
+"0",""
+"0","# Reactive Plot"
+"0","renderPlotly({"
+"0","  ggplotly("
+"0","    ggplot(mtcars, aes_string(x = input$xvar, y = ""mpg"")) +"
+"0","      geom_point(color = ""tomato"", size = 3) +"
+"0","      labs(title = paste(""MPG vs"", input$xvar),"
+"0","           x = input$xvar,"
+"0","           y = ""Miles per Gallon"")"
+"0","  )"
+"0","}) "
+"1","<shiny.render.function> 
+"

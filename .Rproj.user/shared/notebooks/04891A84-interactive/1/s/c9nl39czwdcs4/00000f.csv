@@ -1,0 +1,16 @@
+"0","#| echo: false"
+"0","#| fig-height: 5"
+"0","library(leaflet)"
+"2","G3;Registered S3 methods overwritten by 'htmltools':
+  method               from         
+  print.html           tools:rstudio
+  print.shiny.tag      tools:rstudio
+  print.shiny.tag.list tools:rstudio
+g"
+"2","G3;Registered S3 method overwritten by 'htmlwidgets':
+  method           from         
+  print.htmlwidget tools:rstudio
+g"
+"0","leaflet() %>%"
+"0","  addTiles() %>%  # Add default OpenStreetMap map tiles"
+"0","  addMarkers(lng=174.768, lat=-36.852, popup=""The birthplace of R"")"

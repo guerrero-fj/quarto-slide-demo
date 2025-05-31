@@ -1,0 +1,8 @@
+"0","library(shiny)"
+"0","library(ggplot2)"
+"0","library(plotly)"
+"0",""
+"0","# UI control"
+"0","selectInput(""xvar"", ""Select X-axis Variable:"","
+"0","            choices = names(mtcars),"
+"0","            selected = ""hp"")"
