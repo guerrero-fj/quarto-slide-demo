@@ -1,0 +1,176 @@
+---
+title: "My Reveal.js Demo"
+author: "Francisco J. Guerrero"
+format: 
+  revealjs:
+    theme: [default, custom.scss]
+runtime: shiny
+---
+
+## Welcome {.emphasize}
+
+**Quarto** enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+
+---
+
+## What is Quarto? {.emphasize}
+
+**Quarto** is an open-source scientific and technical publishing system built on Pandoc. It enables you to create dynamic documents, reports, presentations, and websites in R, Python, Julia, and Observable JavaScript.
+
+---
+
+## Today {.emphasize}
+
+This is a Quarto Reveal.js presentation. It is a demo of the Reveal.js format and some of its features, including:
+
+- Custom theme
+- Data visualizations using **ggplot2** and **plotly**
+- Live Slido Polling
+
+---
+
+## Code {.emphasize}
+
+You can use **Quarto** to create presentations with code. Here is an example of a code chunk in R:
+
+```{.r}
+library(ggplot2)
+ggplot(mtcars, aes(x = mpg, y = wt)) +
+  geom_point(color = "steelblue", size = 3) +
+  labs(title = "Fuel Efficiency vs. Weight",
+       x = "Miles per Gallon (mpg)",
+       y = "Weight (1000 lbs)") 
+```
+
+## Data Visualization {.emphasize}
+
+You can also execute the code chunk and display the output in the presentation. Here is an example of a data visualization using **ggplot2**:
+
+```{r}
+library(ggplot2)
+ggplot(mtcars, aes(x = mpg, y = wt)) +
+  geom_point(color = "steelblue", size = 3) +
+  labs(title = "Fuel Efficiency vs. Weight",
+       x = "Miles per Gallon (mpg)",
+       y = "Weight (1000 lbs)") 
+```
+
+
+## Data Visualization + Interactivity {.emphasize}
+
+You can also create interactive visualizations using **plotly**. Here is an example of a data visualization using **ggplot2** and **plotly**:
+
+::: {style="overflow-x:auto; max-width:100%; margin:0 auto;"}
+```{r}
+library(plotly)
+
+p <- ggplot(mtcars, aes(x = mpg, y = wt)) +
+  geom_point(color = "steelblue", size = 3) +
+  labs(title = "Fuel Efficiency vs. Weight",
+       x = "Miles per Gallon (mpg)",
+       y = "Weight (1000 lbs)")
+
+# Convert to plotly with size and toolbar config
+ggplotly(p, width = 800, height = 500) %>%
+  layout(margin = list(t = 50, b = 50, l = 50, r = 50)) %>%
+  config(displayModeBar = TRUE,
+         displaylogo = FALSE,
+         modeBarButtonsToRemove = c("sendDataToCloud"))
+
+# ggplotly(p)
+```
+:::
+
+## Data Visualization + Interactivity {.emphasize}
+
+You can also create interactive visualizations using **plotly** via Shiny.  
+Use a `plotlyOutput()` in the **UI** and a corresponding `renderPlotly()` in the **server**:
+
+```{r, context = "shiny"}
+# load everything Shiny needs
+library(shiny)
+library(ggplot2)
+library(plotly)
+
+# renderPlotly returns the widget directly to the slide
+renderPlotly({
+  p <- ggplot(mtcars, aes(x = mpg, y = wt)) +
+    geom_point(color = "steelblue", size = 3) +
+    labs(
+      title = "Fuel Efficiency vs. Weight",
+      x = "Miles per Gallon (mpg)",
+      y = "Weight (1000 lbs)"
+    )
+
+  ggplotly(p, width = 800, height = 500) %>%
+    layout(margin = list(t = 50, b = 50, l = 50, r = 50)) %>%
+    config(
+      displayModeBar = TRUE,
+      displaylogo = FALSE,
+      modeBarButtonsToRemove = c("sendDataToCloud")
+    )
+})
+javascript
+Copy
+Edit
+
+```
+
+
+
+
+## Live Poll: What's Your Favorite Visual Design Principle?
+
+You can also link to external content, such as a live poll. Here is an example of a live poll using **Slido**:
+
+![](slido_poll.png){width=100%}
+
+## Looking at Live Results: What's Your Favorite Visual Design Principle?
+
+<iframe src="https://app.sli.do/event/gPHvXsfj7Sexn3HGAKi4cW" 
+height="100%" width="100%" frameBorder="0" style="min-height: 560px;
+" allow="clipboard-write" title="Slido"></iframe>
+
+## There is more...  {.emphasize}
+
+We have only scratched the surface of what you can do with **Quarto**. Here are some additional features you might find useful:
+
+<https://quarto.org/docs/presentations/revealjs/>
+
+The end.
+
+
+## More about interactivity
+You can also create interactive visualizations using **plotly**.  
+Here’s an example that combines **ggplot2** and **plotly**:
+
+```{r}
+library(plotly) 
+
+fig <- plot_ly(data = iris, x = ~Petal.Width, y = ~Sepal.Length, color = ~Species,  
+               type = "scatter", mode = "markers")%>% 
+  layout(title="A Plotly Figure", legend=list(title=list(text='species'))) 
+
+fig <- fig %>% layout(dragmode='drawopenpath',
+                      newshape=list(line = list(color='cyan')),
+                      title = 'Draw a path to separate versicolor and virginica')
+
+#Add modebar buttons 
+config(fig,modeBarButtonsToAdd = list('drawline', 
+                                 'drawopenpath', 
+                                 'drawclosedpath', 
+                                 'drawcircle', 
+                                 'drawrect', 
+                                 'eraseshape')) %>%layout(plot_bgcolor='#e5ecf6',
+          xaxis = list(
+            zerolinecolor = '#ffff',
+            zerolinewidth = 2,
+            gridcolor = 'ffff'),
+          yaxis = list(
+            zerolinecolor = '#ffff',
+            zerolinewidth = 2,
+            gridcolor = 'ffff')
+          )
+
+```
+
