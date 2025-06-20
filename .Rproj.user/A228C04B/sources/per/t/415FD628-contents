@@ -1,0 +1,130 @@
+---
+title: "Quarto Presentations"
+subtitle: "Create beautiful interactive slide decks with Reveal.js"
+format:
+  revealjs:
+  # make the slide canvas full screen
+    width: 1920
+    height: 1080 
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: images/osu-logo.svg
+    css: custom.scss
+    footer: 'Effective Communication Skills for Scientists'
+runtime: shiny
+---
+## In the beginning...there was Excel {.emphasize}
+
+I was pretty set into my ways of creating data presentations using Excel. It was quick, it was simple, and it was easy to share with others. I could create charts and graphs, and even do some basic data analysis.
+
+![](images/alsea1.jpg){width=80%}
+
+## Then there was PowerPoint {.emphasize}
+
+I would take my Excel charts and copy them into PowerPoint, and edit for hours, sometimes days, to get the presentation just right.
+
+![](images/alsea2.jpg){width=80%}
+
+
+## Until one day my story asked for more... {.emphasize}
+
+There was a story about carbon exchange in the Alsea River that I wanted to tell. Coarse and fine particles, always assumed as distinc pools, were chemically connected, but Excel was quite limiting.
+![](images/alsea3.jpg){width=80%}
+
+## Moving to RStudio {.emphasize}
+
+In STATS 511, I learned about R Markdown and how to create dynamic documents with R. I was amazed at how easy it was to create beautiful reports and presentations with R Markdown.
+
+![](images/rstudio-screenshot.jpg){width=80%}
+
+## And never looked back {.emphasize}
+
+My science stories were not limited by default plots any more. I may use PowerPoint for light editing, 
+but I try to avoid it as much as I can. 
+
+![](images/rstudio-plots.jpg){width=80%}
+
+## Enter GitHub {.emphasize}
+
+Once I transitioned into more coding, I started using GitHub to store my code in the cloud and access it from anywhere. I also started using GitHub to share my code with others and collaborate on projects.
+
+![](images/guerrero-github.jpg){width=80%}
+
+## And then I found Quarto {.emphasize}
+
+**Quarto** enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+
+## What is Quarto? {.emphasize}
+
+**Quarto** is an **open-source** (i.e., Free!) scientific and technical publishing system. It enables you to create dynamic documents, reports, presentations, and websites in R, Python, and other programming languages.
+
+**Quarto** is designed to be a powerful and flexible tool for creating high-quality, **reproducible** documents that can include code, data, and visualizations. It supports a wide range of output formats, including HTML, PDF, Word, and more.
+
+This presentation, for instance is a Quarto presentation that uses the **Reveal.js** format to create an interactive slide deck.
+
+## What is Reveal.js?
+
+**Reveal.js** is a framework for easily creating beautiful presentations using HTML. It is designed to be easy to use, flexible, and powerful, allowing you to create presentations that are both visually appealing and interactive.
+
+
+## Interactive Slides {.smaller transition="slide"}
+
+Include Jupyter widgets and htmlwidgets in your presentations
+
+```{r}
+#| echo: false
+#| fig-height: 8
+#| fig-width: 18
+library(leaflet)
+leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lng=-74.2005, lat=11.2390, popup="My Hometown")
+```
+
+
+## Data Visualization + Interactivity {.emphasize}
+
+You can also create interactive visualizations using **plotly**. Here is an example of a data visualization using **ggplot2** and **plotly**:
+
+```{r, eco=FALSE, message=FALSE, warning=FALSE}
+library(plotly)
+p <- ggplot(mtcars, aes(x = mpg, y = wt, color = as.factor(gear))) +
+  geom_point(size = 3) +
+  labs(title = "Fuel Efficiency vs. Weight",
+       x = "Miles per Gallon (mpg)",
+       y = "Weight (1000 lbs)")+
+  scale_color_discrete(name = "Number of Gears",
+                     labels = c("3 Gears", "4 Gears", "5 Gears")) 
+p <- p + theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.0, size = 24, face = "bold"),
+        axis.title.x = element_text(size = 20),
+        axis.title.y = element_text(size = 20),
+        legend.position = c(0.8,0.8))
+ggplotly(p, width = 1800, height = 800)
+```
+
+## Interactive Slides-Whoops! {.smaller transition="slide"}
+
+```{r, echo=FALSE}
+library(shiny)
+library(ggplot2)
+library(plotly)
+
+# UI control
+selectInput("xvar", "Select X-axis Variable:",
+            choices = names(mtcars),
+            selected = "hp")
+
+# Reactive Plot
+renderPlotly({
+  ggplotly(
+    ggplot(mtcars, aes_string(x = input$xvar, y = "mpg")) +
+      geom_point(color = "tomato", size = 3) +
+      labs(title = paste("MPG vs", input$xvar),
+           x = input$xvar,
+           y = "Miles per Gallon")
+  )
+}) 
+```

@@ -1,0 +1,8 @@
+"0","library(plotly)"
+"0","p <- ggplot(mtcars, aes(x = mpg, y = wt)) +"
+"0","  geom_point(color = ""steelblue"", size = 3) +"
+"0","  labs(title = ""Fuel Efficiency vs. Weight"","
+"0","       x = ""Miles per Gallon (mpg)"","
+"0","       y = ""Weight (1000 lbs)"")"
+"0",""
+"0","ggplotly(p, width = 900, height = 600)"
