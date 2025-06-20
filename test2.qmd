@@ -1,0 +1,73 @@
+---
+title: "Interactive Plotly in Reveal.js"
+format: revealjs
+server: shiny
+---
+
+
+## Interactive Plot Example
+
+::: {.columns}
+::: {.column width="70%"}
+
+```
+#| context: ui
+plotlyOutput("my_plot", width = "800px", height = "500px")
+```
+:::
+
+::: {.column width="30%"}
+<!-- You can add explanatory text or controls here if needed -->
+:::
+:::
+
+```
+#| context: server
+library(ggplot2)
+library(plotly)
+
+output$my_plot <- renderPlotly({
+  p <- ggplot(mtcars, aes(x = mpg, y = wt)) +
+    geom_point(color = "steelblue", size = 3) +
+    labs(
+      title = "Fuel Efficiency vs. Weight",
+      x     = "Miles per Gallon (mpg)",
+      y     = "Weight (1000 lbs)"
+    )
+  
+  ggplotly(p, width = 800, height = 500) %>%
+    layout(margin = list(t = 50, r = 50, b = 50, l = 50)) %>%
+    config(
+      displayModeBar        = TRUE,
+      displaylogo           = FALSE,
+      modeBarButtonsToRemove = c("sendDataToCloud")
+    )
+})
+```
+```
+
+---
+
+## **3. Render and Present**
+
+- Save your `.qmd` file and render it with Quarto (e.g., `quarto preview yourslides.qmd`).
+- When you present, Quarto will run a Shiny server in the background, and your interactive Plotly plot will appear in the slide[3][1].
+
+---
+
+## **Key Points**
+
+- Use `context: ui` for UI outputs (e.g., `plotlyOutput`).
+- Use `context: server` for server logic (e.g., `renderPlotly`).
+- Place both code chunks on the same slide to link the output and logic.
+- No need for a full `shinyApp()` structure; Quarto handles wiring the UI and server code[3].
+
+---
+
+**References:**  
+- [Quarto Shiny Integration Docs][3]  
+- [Reveal.js with Quarto Docs][1]
+
+---
+
+**Note:** If you want to embed a fully standalone Shiny app (not just outputs), you can use an `<iframe>` pointing to a running Shiny app, but for most Reveal.js presentations, the above method is preferred and integrates smoothly within the slides[6].
